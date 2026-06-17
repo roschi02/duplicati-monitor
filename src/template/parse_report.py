@@ -19,9 +19,9 @@ def lookup_dot_separated_key(data, key):
 
 
 def generate_message_report(data):
-    default_template_error = os.getenv("TEMPLATE_ERROR", "💾 🔴 Backup fehlgeschlagen: <Extra.backup-name>\n⚠️ Status: <Data.ParsedResult>\n⏱ Dauer: <Data.Duration>\n📁 Dateien geprüft: <Data.ExaminedFiles>")
-    default_template_success = os.getenv("TEMPLATE_SUCCESS", "💾 🟢 Backup erfolgreich: <Extra.backup-name>\n📁 Dateien geprüft: <Data.ExaminedFiles>\n📦 Neue Dateien: <Data.AddedFiles>\n⏱ Dauer: <Data.Duration>\n✅ Status: <Data.ParsedResult>")
-
+    default_template_error = os.getenv("TEMPLATE_ERROR", "💾 🔴 Backup failed: <Extra.backup-name>\n- Status: <Data.ParsedResult>\n⏱ Duration: <Data.Duration>\n- Files examined: <Data.ExaminedFiles>")
+    default_template_success = os.getenv("TEMPLATE_SUCCESS", "💾 🟢 Backup successful: <Extra.backup-name>\n- Files examined: <Data.ExaminedFiles>\n- New files: <Data.AddedFiles>\n⏱ Duration: <Data.Duration>\n- Status: <Data.ParsedResult>")
+    
     if "TestResults" not in data["Data"] or "ParsedResult" not in data["Data"]["TestResults"] \
             or data["Data"]["TestResults"]["ParsedResult"] != "Success":
         message = default_template_error
