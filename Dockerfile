@@ -1,7 +1,7 @@
 FROM python:3.11-alpine
-MAINTAINER Rafa Muñoz rafa93m@gmail.com (@rafa93m)
+LABEL org.opencontainers.image.authors="Rafa Muñoz rafa93m@gmail.com (@rafa93m)"
 
-ENV TZ=Europe/Madrid
+ENV TZ=Europe/Berlin
 ENV LOGLEVEL=INFO
 ENV PORT=8000
 
